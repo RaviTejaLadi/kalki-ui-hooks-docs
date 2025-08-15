@@ -14,11 +14,8 @@ const LazyHooksLayout = React.lazy(
 const LazyHooksIndex = React.lazy(
   () => import("./components/hooks/HooksIndex")
 );
-const LazyUseLocalStorage = React.lazy(
-  () => import("./components/hooks/UseLocalStorage")
-);
-const LazyUseDebounce = React.lazy(
-  () => import("./components/hooks/UseDebounce")
+const LazyHookDetail = React.lazy(
+  () => import("./components/hooks/HookDetail")
 );
 
 // Root layout component
@@ -58,17 +55,8 @@ const router = createBrowserRouter([
             element: <LazyHooksIndex />,
           },
           {
-            path: "use-local-storage",
-            element: <LazyUseLocalStorage />,
-          },
-          {
-            path: "use-debounce",
-            element: <LazyUseDebounce />,
-          },
-          // Add more hook routes here as needed
-          {
-            path: "*",
-            element: <NotFound />,
+            path: ":hookPath",
+            element: <LazyHookDetail />,
           },
         ],
       },

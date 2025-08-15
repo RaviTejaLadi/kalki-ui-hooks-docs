@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, ChevronRight } from "lucide-react";
+import { hooksData, getAllCategories } from "../../../data/hooksData";
 
 import {
   Sidebar,
@@ -13,167 +14,23 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 
-// Hooks data organized by category with emojis
-const hooksByCategory = [
-  {
-    category: "React Built-in",
-    emoji: "⚛️",
-    hooks: [
-      { title: "useState", url: "/hooks/use-state" },
-      { title: "useEffect", url: "/hooks/use-effect" },
-      { title: "useContext", url: "/hooks/use-context" },
-      { title: "useReducer", url: "/hooks/use-reducer" },
-      { title: "useCallback", url: "/hooks/use-callback" },
-      { title: "useMemo", url: "/hooks/use-memo" },
-      { title: "useRef", url: "/hooks/use-ref" },
-      { title: "useImperativeHandle", url: "/hooks/use-imperative-handle" },
-      { title: "useLayoutEffect", url: "/hooks/use-layout-effect" },
-      { title: "useDebugValue", url: "/hooks/use-debug-value" },
-      { title: "useId", url: "/hooks/use-id" },
-      { title: "useTransition", url: "/hooks/use-transition" },
-      { title: "useDeferredValue", url: "/hooks/use-deferred-value" },
-      { title: "useSyncExternalStore", url: "/hooks/use-sync-external-store" },
-      { title: "useInsertionEffect", url: "/hooks/use-insertion-effect" },
-    ],
-  },
-  {
-    category: "State Management",
-    emoji: "💾",
-    hooks: [
-      { title: "useLocalStorage", url: "/hooks/use-local-storage" },
-      { title: "useSessionStorage", url: "/hooks/use-session-storage" },
-      { title: "usePrevious", url: "/hooks/use-previous" },
-      { title: "useToggle", url: "/hooks/use-toggle" },
-      { title: "useCounter", url: "/hooks/use-counter" },
-      { title: "useArray", url: "/hooks/use-array" },
-      { title: "useMap", url: "/hooks/use-map" },
-      { title: "useSet", url: "/hooks/use-set" },
-    ],
-  },
-  {
-    category: "Performance",
-    emoji: "⚡",
-    hooks: [
-      { title: "useDebounce", url: "/hooks/use-debounce" },
-      { title: "useThrottle", url: "/hooks/use-throttle" },
-      { title: "useWhyDidYouUpdate", url: "/hooks/use-why-did-you-update" },
-      { title: "useMemoOne", url: "/hooks/use-memo-one" },
-    ],
-  },
-  {
-    category: "DOM Events",
-    emoji: "🖱️",
-    hooks: [
-      { title: "useClickOutside", url: "/hooks/use-click-outside" },
-      { title: "useEventListener", url: "/hooks/use-event-listener" },
-      { title: "useKeyPress", url: "/hooks/use-key-press" },
-      { title: "useHover", url: "/hooks/use-hover" },
-      { title: "useFocus", url: "/hooks/use-focus" },
-      { title: "useLongPress", url: "/hooks/use-long-press" },
-      { title: "useDrag", url: "/hooks/use-drag" },
-      {
-        title: "useIntersectionObserver",
-        url: "/hooks/use-intersection-observer",
-      },
-      { title: "useResizeObserver", url: "/hooks/use-resize-observer" },
-      { title: "useMutationObserver", url: "/hooks/use-mutation-observer" },
-    ],
-  },
-  {
-    category: "Responsive",
-    emoji: "📱",
-    hooks: [
-      { title: "useMediaQuery", url: "/hooks/use-media-query" },
-      { title: "useWindowSize", url: "/hooks/use-window-size" },
-      { title: "useBreakpoint", url: "/hooks/use-breakpoint" },
-      { title: "useOrientation", url: "/hooks/use-orientation" },
-    ],
-  },
-  {
-    category: "Network",
-    emoji: "🌐",
-    hooks: [
-      { title: "useFetch", url: "/hooks/use-fetch" },
-      { title: "useAsync", url: "/hooks/use-async" },
-      { title: "useSWR", url: "/hooks/use-swr" },
-      { title: "useQuery", url: "/hooks/use-query" },
-      { title: "useWebSocket", url: "/hooks/use-web-socket" },
-      { title: "useOnlineStatus", url: "/hooks/use-online-status" },
-    ],
-  },
-  {
-    category: "Timers",
-    emoji: "⏰",
-    hooks: [
-      { title: "useTimeout", url: "/hooks/use-timeout" },
-      { title: "useInterval", url: "/hooks/use-interval" },
-      { title: "useCountdown", url: "/hooks/use-countdown" },
-    ],
-  },
-  {
-    category: "Animation",
-    emoji: "🎬",
-    hooks: [
-      { title: "useAnimation", url: "/hooks/use-animation" },
-      { title: "useSpring", url: "/hooks/use-spring" },
-    ],
-  },
-  {
-    category: "Forms",
-    emoji: "📝",
-    hooks: [
-      { title: "useForm", url: "/hooks/use-form" },
-      { title: "useInput", url: "/hooks/use-input" },
-      { title: "useFormValidation", url: "/hooks/use-form-validation" },
-      { title: "useClipboard", url: "/hooks/use-clipboard" },
-    ],
-  },
-  {
-    category: "Utility",
-    emoji: "🔧",
-    hooks: [
-      { title: "useIsMounted", url: "/hooks/use-is-mounted" },
-      { title: "useUpdateEffect", url: "/hooks/use-update-effect" },
-      { title: "useMount", url: "/hooks/use-mount" },
-      { title: "useUnmount", url: "/hooks/use-unmount" },
-      { title: "useDeepCompareEffect", url: "/hooks/use-deep-compare-effect" },
-      { title: "useIsFirstRender", url: "/hooks/use-is-first-render" },
-      { title: "useRenderCount", url: "/hooks/use-render-count" },
-      { title: "useLatest", url: "/hooks/use-latest" },
-    ],
-  },
-  {
-    category: "Browser APIs",
-    emoji: "🔌",
-    hooks: [
-      { title: "useGeolocation", url: "/hooks/use-geolocation" },
-      { title: "useBattery", url: "/hooks/use-battery" },
-      { title: "usePermission", url: "/hooks/use-permission" },
-      { title: "usePageVisibility", url: "/hooks/use-page-visibility" },
-      { title: "useIdle", url: "/hooks/use-idle" },
-      { title: "useFullscreen", url: "/hooks/use-fullscreen" },
-      { title: "useNotification", url: "/hooks/use-notification" },
-      { title: "useShare", url: "/hooks/use-share" },
-    ],
-  },
-  {
-    category: "Storage",
-    emoji: "🗄️",
-    hooks: [
-      { title: "useIndexedDB", url: "/hooks/use-indexed-db" },
-      { title: "useCookie", url: "/hooks/use-cookie" },
-      { title: "useHistoryState", url: "/hooks/use-history-state" },
-    ],
-  },
-  {
-    category: "Development",
-    emoji: "🐛",
-    hooks: [
-      { title: "useLogger", url: "/hooks/use-logger" },
-      { title: "useTrace", url: "/hooks/use-trace" },
-    ],
-  },
-];
+// Generate hooks data organized by category dynamically
+const generateHooksByCategory = () => {
+  const categories = getAllCategories();
+  return categories.map(category => {
+    const categoryHooks = hooksData.filter(hook => hook.category === category);
+    return {
+      category,
+      emoji: categoryHooks[0]?.icon || "🔧",
+      hooks: categoryHooks.map(hook => ({
+        title: hook.name,
+        url: `/hooks/${hook.path}`
+      }))
+    };
+  });
+};
+
+const hooksByCategory = generateHooksByCategory();
 
 // Category color function matching HooksIndex
 const getCategoryColor = (category: string) => {
