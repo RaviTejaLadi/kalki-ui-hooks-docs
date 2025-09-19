@@ -59,7 +59,6 @@ const Navbar = ({
     title: "Kalki UI Hooks",
   },
   menu = [
-    { title: "Home", url: "/" },
     { title: "Hooks", url: "/hooks" },
 
   ],

@@ -1,58 +1,130 @@
 import React from "react";
+import { Code2, Zap, ChevronRight, Sparkles } from "lucide-react";
 
 const Home: React.FC = () => {
   return (
-    <div className=" bg-background p-8 overflow-auto mt-14">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-foreground mb-6">
+    <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 min-h-screen overflow-auto">
+      {/* Hero Section */}
+      <div className="relative pt-20 pb-16 px-8">
+        {/* Background decorations */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 dark:bg-blue-800/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-30 animate-pulse"></div>
+          <div className="absolute top-40 right-10 w-80 h-80 bg-purple-200 dark:bg-purple-800/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-30 animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 left-1/2 w-96 h-96 bg-pink-200 dark:bg-pink-800/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-20 animate-pulse delay-2000"></div>
+        </div>
+
+        <div className="relative max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-blue-200 dark:border-blue-800 rounded-full px-4 py-2 mb-8">
+            <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            <span className="text-sm font-medium text-blue-800 dark:text-blue-200">New hooks added weekly</span>
+          </div>
+          
+          <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">
             Kalki UI Hooks
           </h1>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
+          
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10">
             A curated collection of custom React hooks that help you build
             better user interfaces. Each hook is thoroughly tested,
             well-documented, and follows React best practices.
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+            <a
+              href="/hooks"
+              className="group inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              Explore Hooks
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+            
+            <a
+              href="/docs"
+              className="inline-flex items-center gap-2 bg-white/80 dark:bg-slate-700/80 backdrop-blur-sm text-slate-700 dark:text-slate-200 px-8 py-4 rounded-xl font-semibold hover:bg-white dark:hover:bg-slate-600 hover:shadow-md transition-all duration-200 border border-slate-200 dark:border-slate-600"
+            >
+              <Code2 className="w-5 h-5" />
+              View Docs
+            </a>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-8 max-w-md mx-auto">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-slate-800 dark:text-slate-200">25+</div>
+              <div className="text-sm text-slate-600 dark:text-slate-400">Hooks</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-slate-800 dark:text-slate-200">10k+</div>
+              <div className="text-sm text-slate-600 dark:text-slate-400">Downloads</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-slate-800 dark:text-slate-200">99%</div>
+              <div className="text-sm text-slate-600 dark:text-slate-400">TypeScript</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Features Section */}
+      <div className="max-w-6xl mx-auto px-8 pb-20">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-200 mb-4">
+            Why Choose Kalki UI Hooks?
+          </h2>
+          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+            Built by developers, for developers. Each hook solves real-world problems with elegant solutions.
+          </p>
         </div>
 
-        <div className="grid gap-6 mb-12">
-          <div className="bg-card border border-border rounded-lg p-6 hover:shadow-md transition-shadow">
-            <h3 className="text-lg font-semibold text-card-foreground mb-3">
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="group bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-white/50 dark:border-slate-700/50 rounded-2xl p-8 hover:bg-white dark:hover:bg-slate-700 hover:shadow-xl hover:shadow-blue-100/50 dark:hover:shadow-blue-900/20 transition-all duration-300 hover:-translate-y-2">
+            <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <Zap className="w-7 h-7 text-white" />
+            </div>
+            <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">
               Easy to Use
             </h3>
-            <p className="text-muted-foreground">
+            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
               Simple and intuitive API design that makes development faster and
-              more enjoyable.
+              more enjoyable. Get started in minutes, not hours.
             </p>
           </div>
 
-          <div className="bg-card border border-border rounded-lg p-6 hover:shadow-md transition-shadow">
-            <h3 className="text-lg font-semibold text-card-foreground mb-3">
+          <div className="group bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-white/50 dark:border-slate-700/50 rounded-2xl p-8 hover:bg-white dark:hover:bg-slate-700 hover:shadow-xl hover:shadow-purple-100/50 dark:hover:shadow-purple-900/20 transition-all duration-300 hover:-translate-y-2">
+            <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <Code2 className="w-7 h-7 text-white" />
+            </div>
+            <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">
               TypeScript Ready
             </h3>
-            <p className="text-muted-foreground">
+            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
               Full TypeScript support with excellent type inference and
-              IntelliSense.
+              IntelliSense. Catch errors before they happen.
             </p>
           </div>
 
-          <div className="bg-card border border-border rounded-lg p-6 hover:shadow-md transition-shadow">
-            <h3 className="text-lg font-semibold text-card-foreground mb-3">
-              Accessible
-            </h3>
-            <p className="text-muted-foreground">
-              Built with accessibility in mind, following WCAG guidelines.
-            </p>
-          </div>
         </div>
 
-        <div className="text-center">
-          <a
-            href="/hooks"
-            className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
-          >
-            Explore Hooks
-          </a>
+        {/* CTA Section */}
+        <div className="bg-gradient-to-r from-primary/5 to-primary/10 border border-primary/20 rounded-2xl p-8 mt-10">
+          <div className="text-center space-y-6">
+            <h2 className="text-3xl font-bold text-foreground">
+              Ready to Get Started?
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Start building better React applications with our comprehensive
+              collection of custom hooks. Each hook comes with detailed
+              documentation, examples, and TypeScript support.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-sm hover:shadow-md">
+                Installation Guide
+              </button>
+              <button className="bg-background text-primary border border-primary px-8 py-3 rounded-lg font-medium hover:bg-primary/5 transition-colors">
+                View Examples
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

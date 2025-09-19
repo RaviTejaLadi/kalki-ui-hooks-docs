@@ -181,28 +181,6 @@ const HooksIndex: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Getting Started Section */}
-        <div className="bg-gradient-to-r from-primary/5 to-primary/10 border border-primary/20 rounded-2xl p-8">
-          <div className="text-center space-y-6">
-            <h2 className="text-3xl font-bold text-foreground">
-              Ready to Get Started?
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Start building better React applications with our comprehensive
-              collection of custom hooks. Each hook comes with detailed
-              documentation, examples, and TypeScript support.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-sm hover:shadow-md">
-                Installation Guide
-              </button>
-              <button className="bg-background text-primary border border-primary px-8 py-3 rounded-lg font-medium hover:bg-primary/5 transition-colors">
-                View Examples
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
