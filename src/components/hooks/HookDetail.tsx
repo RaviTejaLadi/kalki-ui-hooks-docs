@@ -1,28 +1,35 @@
-import React, { useState } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Copy, Check, ExternalLink, Code, BookOpen, Zap, Tag } from 'lucide-react';
-import { getHookByPath, hooksData } from '../../data/hooksData';
-import { Button } from '../ui/button';
-import { Badge } from '../ui/badge';
-import { Separator } from '../ui/separator';
-import { ScrollArea } from '../ui/scroll-area';
+import React, { useState } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import {
+  ArrowLeft,
+  Copy,
+  Check,
+  ExternalLink,
+  Code,
+  BookOpen,
+  Zap,
+  Tag,
+} from "lucide-react";
+import { getHookByPath, hooksData } from "../../data/hooksData";
+import { Button } from "../ui/button";
+import { Badge } from "../ui/badge";
 
 const HookDetail: React.FC = () => {
   const { hookPath } = useParams<{ hookPath: string }>();
   const navigate = useNavigate();
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
-  const hook = getHookByPath(hookPath || '');
+  const hook = getHookByPath(hookPath || "");
 
   if (!hook) {
     return (
       <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <div className="text-center space-y-4">
           <h1 className="text-2xl font-bold">Hook Not Found</h1>
-          <p className="text-muted-foreground">The hook you're looking for doesn't exist.</p>
-          <Button onClick={() => navigate('/hooks')}>
-            Back to Hooks
-          </Button>
+          <p className="text-muted-foreground">
+            The hook you're looking for doesn't exist.
+          </p>
+          <Button onClick={() => navigate("/hooks")}>Back to Hooks</Button>
         </div>
       </div>
     );
@@ -34,7 +41,7 @@ const HookDetail: React.FC = () => {
       setCopiedCode(type);
       setTimeout(() => setCopiedCode(null), 2000);
     } catch (err) {
-      console.error('Failed to copy text: ', err);
+      console.error("Failed to copy text: ", err);
     }
   };
 
@@ -72,9 +79,10 @@ const HookDetail: React.FC = () => {
   };
 
   // Find next and previous hooks for navigation
-  const currentIndex = hooksData.findIndex(h => h.path === hook.path);
+  const currentIndex = hooksData.findIndex((h) => h.path === hook.path);
   const prevHook = currentIndex > 0 ? hooksData[currentIndex - 1] : null;
-  const nextHook = currentIndex < hooksData.length - 1 ? hooksData[currentIndex + 1] : null;
+  const nextHook =
+    currentIndex < hooksData.length - 1 ? hooksData[currentIndex + 1] : null;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -102,7 +110,9 @@ const HookDetail: React.FC = () => {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-3 mb-3">
-                <h1 className="text-4xl font-bold text-foreground">{hook.name}</h1>
+                <h1 className="text-4xl font-bold text-foreground">
+                  {hook.name}
+                </h1>
                 <Badge className={getCategoryColor(hook.category)}>
                   {hook.category}
                 </Badge>
@@ -115,22 +125,31 @@ const HookDetail: React.FC = () => {
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2">
-            {hook.tags.map((tag) => (
-              <Badge key={tag} variant="secondary" className="flex items-center gap-1">
-                <Tag className="w-3 h-3" />
-                {tag}
-              </Badge>
-            ))}
+            {hook?.tags &&
+              hook?.tags.map((tag) => (
+                <Badge
+                  key={tag}
+                  variant="secondary"
+                  className="flex items-center gap-1"
+                >
+                  <Tag className="w-3 h-3" />
+                  {tag}
+                </Badge>
+              ))}
           </div>
         </div>
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {hook.features.map((feature, index) => (
-            <div key={index} className="bg-card border border-border rounded-lg p-4">
-              <p className="text-sm text-muted-foreground">{feature}</p>
-            </div>
-          ))}
+          {hook?.features &&
+            hook?.features.map((feature, index) => (
+              <div
+                key={index}
+                className="bg-card border border-border rounded-lg p-4"
+              >
+                <p className="text-sm text-muted-foreground">{feature}</p>
+              </div>
+            ))}
         </div>
 
         {/* Main Content Grid */}
@@ -151,9 +170,11 @@ const HookDetail: React.FC = () => {
                   size="sm"
                   variant="ghost"
                   className="absolute top-2 right-2"
-                  onClick={() => copyToClipboard(hook.installation, 'installation')}
+                  onClick={() =>
+                    copyToClipboard(hook?.installation, "installation")
+                  }
                 >
-                  {copiedCode === 'installation' ? (
+                  {copiedCode === "installation" ? (
                     <Check className="w-4 h-4 text-green-600" />
                   ) : (
                     <Copy className="w-4 h-4" />
@@ -177,9 +198,9 @@ const HookDetail: React.FC = () => {
                   size="sm"
                   variant="ghost"
                   className="absolute top-2 right-2"
-                  onClick={() => copyToClipboard(hook.code, 'code')}
+                  onClick={() => copyToClipboard(hook.code, "code")}
                 >
-                  {copiedCode === 'code' ? (
+                  {copiedCode === "code" ? (
                     <Check className="w-4 h-4 text-green-600" />
                   ) : (
                     <Copy className="w-4 h-4" />
@@ -198,8 +219,12 @@ const HookDetail: React.FC = () => {
                 {hook.examples.map((example, index) => (
                   <div key={index} className="space-y-3">
                     <div>
-                      <h3 className="font-semibold text-foreground">{example.title}</h3>
-                      <p className="text-sm text-muted-foreground">{example.description}</p>
+                      <h3 className="font-semibold text-foreground">
+                        {example.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {example.description}
+                      </p>
                     </div>
                     <div className="bg-muted rounded-lg p-4 relative">
                       <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
@@ -209,7 +234,9 @@ const HookDetail: React.FC = () => {
                         size="sm"
                         variant="ghost"
                         className="absolute top-2 right-2"
-                        onClick={() => copyToClipboard(example.code, `example-${index}`)}
+                        onClick={() =>
+                          copyToClipboard(example.code, `example-${index}`)
+                        }
                       >
                         {copiedCode === `example-${index}` ? (
                           <Check className="w-4 h-4 text-green-600" />
@@ -229,7 +256,7 @@ const HookDetail: React.FC = () => {
             {/* API Reference */}
             <div className="bg-card border border-border rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-4">API Reference</h3>
-              
+
               {/* Parameters */}
               <div className="mb-6">
                 <h4 className="font-medium text-foreground mb-3">Parameters</h4>
@@ -240,11 +267,16 @@ const HookDetail: React.FC = () => {
                         <code className="text-sm font-mono bg-muted px-2 py-1 rounded">
                           {param.name}
                         </code>
-                        <Badge variant={param.required ? "destructive" : "secondary"} className="text-xs">
+                        <Badge
+                          variant={param.required ? "destructive" : "secondary"}
+                          className="text-xs"
+                        >
                           {param.required ? "required" : "optional"}
                         </Badge>
                       </div>
-                      <p className="text-xs text-muted-foreground">{param.description}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {param.description}
+                      </p>
                       <p className="text-xs font-mono text-muted-foreground">
                         Type: {param.type}
                         {param.default && ` (default: ${param.default})`}
@@ -263,7 +295,9 @@ const HookDetail: React.FC = () => {
                       <code className="text-sm font-mono bg-muted px-2 py-1 rounded">
                         {ret.name}
                       </code>
-                      <p className="text-xs text-muted-foreground">{ret.description}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {ret.description}
+                      </p>
                       <p className="text-xs font-mono text-muted-foreground">
                         Type: {ret.type}
                       </p>
@@ -293,7 +327,9 @@ const HookDetail: React.FC = () => {
               <h3 className="text-lg font-semibold mb-4">Related Hooks</h3>
               <div className="space-y-3">
                 {hooksData
-                  .filter(h => h.category === hook.category && h.path !== hook.path)
+                  .filter(
+                    (h) => h.category === hook.category && h.path !== hook.path
+                  )
                   .slice(0, 3)
                   .map((relatedHook) => (
                     <Link
