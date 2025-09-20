@@ -13,6 +13,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from '@/components/ui/sidebar';
+import ReactSvg from '@/assets/ReactSvg';
 
 // Generate hooks data organized by category dynamically
 const generateHooksByCategory = () => {
@@ -91,7 +92,9 @@ export function HooksSidebar({ ...props }: React.ComponentProps<typeof Sidebar>)
           <SidebarHeader>
             <div className="flex items-center gap-3 px-2 py-2">
               <div className=" text-sidebar-primary-foreground flex aspect-square size-10 items-center justify-center rounded-lg">
-                <span className="text-2xl">⚛️</span>
+                <span className="text-2xl">
+                  <ReactSvg className='w-10 h-10'/>
+                </span>
               </div>
               <div className="flex flex-col gap-1">
                 <h2 className="font-semibold text-sidebar-foreground">Hooks</h2>

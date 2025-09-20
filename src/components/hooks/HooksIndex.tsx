@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Input } from '../ui/input';
 import { Search } from 'lucide-react';
 import { hooksData } from '../../data/hooksData';
+import ReactSvg from '@/assets/ReactSvg';
 
 const HooksIndex: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -93,7 +94,9 @@ const HooksIndex: React.FC = () => {
         {/* Hero Header */}
         <div className="text-center space-y-6">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl mb-6">
-            <span className="text-2xl">⚛️</span>
+            <span className="text-2xl">
+              <ReactSvg className="w-10 h-10" />
+            </span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
             React Hooks Library
