@@ -46,7 +46,7 @@ const HooksIndex: React.FC = () => {
 
     return parts.map((part, index) =>
       regex.test(part) ? (
-        <mark key={index} className="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">
+        <mark key={index} className="bg-cyan-200 dark:bg-cyan-800 px-1 rounded">
           {part}
         </mark>
       ) : (
@@ -58,33 +58,33 @@ const HooksIndex: React.FC = () => {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'React Built-in':
-        return 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400';
+        return 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-400';
       case 'State Management':
-        return 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400';
+        return 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400';
       case 'Performance':
-        return 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400';
-      case 'DOM Events':
-        return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-400';
-      case 'Responsive':
         return 'bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-400';
+      case 'DOM Events':
+        return 'bg-sky-100 text-sky-800 dark:bg-sky-900/30 dark:text-sky-400';
+      case 'Responsive':
+        return 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-400';
       case 'Network':
-        return 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400';
+        return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-400';
       case 'Timers':
-        return 'bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-400';
+        return 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400';
       case 'Animation':
-        return 'bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-400';
+        return 'bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-400';
       case 'Forms':
         return 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-400';
       case 'Utility':
-        return 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300';
+        return 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300';
       case 'Browser APIs':
-        return 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400';
+        return 'bg-sky-100 text-sky-800 dark:bg-sky-900/30 dark:text-sky-400';
       case 'Storage':
-        return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400';
+        return 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400';
       case 'Development':
         return 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300';
       default:
-        return 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300';
+        return 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300';
     }
   };
 

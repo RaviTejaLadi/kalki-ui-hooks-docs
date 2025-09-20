@@ -3,23 +3,23 @@ import { Code2, Zap, ChevronRight, Sparkles } from 'lucide-react';
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 min-h-screen overflow-auto">
+    <div className="bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 dark:from-slate-900 dark:via-blue-900/20 dark:to-cyan-900/20 min-h-screen overflow-auto">
       {/* Hero Section */}
       <div className="relative pt-20 pb-16 px-8">
         {/* Background decorations */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 dark:bg-blue-800/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-30 animate-pulse"></div>
-          <div className="absolute top-40 right-10 w-80 h-80 bg-purple-200 dark:bg-purple-800/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-30 animate-pulse delay-1000"></div>
-          <div className="absolute bottom-20 left-1/2 w-96 h-96 bg-pink-200 dark:bg-pink-800/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-20 animate-pulse delay-2000"></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-200 dark:bg-cyan-800/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-30 animate-pulse"></div>
+          <div className="absolute top-40 right-10 w-80 h-80 bg-blue-200 dark:bg-blue-800/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-30 animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 left-1/2 w-96 h-96 bg-teal-200 dark:bg-teal-800/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-20 animate-pulse delay-2000"></div>
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-blue-200 dark:border-blue-800 rounded-full px-4 py-2 mb-8">
-            <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            <span className="text-sm font-medium text-blue-800 dark:text-blue-200">New hooks added weekly</span>
+          <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-cyan-200 dark:border-cyan-800 rounded-full px-4 py-2 mb-8">
+            <Sparkles className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+            <span className="text-sm font-medium text-cyan-800 dark:text-cyan-200">New hooks added weekly</span>
           </div>
 
-          <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">
+          <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-cyan-600 via-blue-600 to-teal-600 bg-clip-text text-transparent mb-6">
             Kalki UI Hooks
           </h1>
 
@@ -31,7 +31,7 @@ const Home: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <a
               href="/hooks"
-              className="group inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="group inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-cyan-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               Explore Hooks
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -39,7 +39,7 @@ const Home: React.FC = () => {
 
             <a
               href="/docs"
-              className="inline-flex items-center gap-2 bg-white/80 dark:bg-slate-700/80 backdrop-blur-sm text-slate-700 dark:text-slate-200 px-8 py-4 rounded-xl font-semibold hover:bg-white dark:hover:bg-slate-600 hover:shadow-md transition-all duration-200 border border-slate-200 dark:border-slate-600"
+              className="inline-flex items-center gap-2 bg-white/80 dark:bg-slate-700/80 backdrop-blur-sm text-slate-700 dark:text-slate-200 px-8 py-4 rounded-xl font-semibold hover:bg-white dark:hover:bg-slate-600 hover:shadow-md transition-all duration-200 border border-cyan-200 dark:border-cyan-600"
             >
               <Code2 className="w-5 h-5" />
               View Docs
@@ -74,8 +74,8 @@ const Home: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="group bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-white/50 dark:border-slate-700/50 rounded-2xl p-8 hover:bg-white dark:hover:bg-slate-700 hover:shadow-xl hover:shadow-blue-100/50 dark:hover:shadow-blue-900/20 transition-all duration-300 hover:-translate-y-2">
-            <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+          <div className="group bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-white/50 dark:border-slate-700/50 rounded-2xl p-8 hover:bg-white dark:hover:bg-slate-700 hover:shadow-xl hover:shadow-cyan-100/50 dark:hover:shadow-cyan-900/20 transition-all duration-300 hover:-translate-y-2">
+            <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <Zap className="w-7 h-7 text-white" />
             </div>
             <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">Easy to Use</h3>
@@ -85,8 +85,8 @@ const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="group bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-white/50 dark:border-slate-700/50 rounded-2xl p-8 hover:bg-white dark:hover:bg-slate-700 hover:shadow-xl hover:shadow-purple-100/50 dark:hover:shadow-purple-900/20 transition-all duration-300 hover:-translate-y-2">
-            <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+          <div className="group bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-white/50 dark:border-slate-700/50 rounded-2xl p-8 hover:bg-white dark:hover:bg-slate-700 hover:shadow-xl hover:shadow-teal-100/50 dark:hover:shadow-teal-900/20 transition-all duration-300 hover:-translate-y-2">
+            <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <Code2 className="w-7 h-7 text-white" />
             </div>
             <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">TypeScript Ready</h3>
