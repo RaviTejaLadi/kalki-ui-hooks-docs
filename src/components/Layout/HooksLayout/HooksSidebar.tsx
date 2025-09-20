@@ -94,6 +94,7 @@ export function HooksSidebar({
       {...props}
       className="h-full top-14 overflow-hidden"
       collapsible="offcanvas"
+      variant="floating"
     >
       <SidebarContent>
         <SidebarGroup>
