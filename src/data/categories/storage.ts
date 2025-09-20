@@ -1,4 +1,4 @@
-import type { HookData } from '../hooksData';
+import type { HookData } from "@/types/HookData";
 
 export const storageHooks: HookData[] = [
   {
