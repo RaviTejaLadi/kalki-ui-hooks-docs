@@ -25,7 +25,7 @@ class ErrorBoundary extends Component<Props, State> {
     console.error('Error caught by ErrorBoundary:', error, errorInfo);
     this.setState({
       error,
-      errorInfo
+      errorInfo,
     });
   }
 
@@ -42,7 +42,11 @@ class ErrorBoundary extends Component<Props, State> {
               <div className="flex-shrink-0">
                 <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
                   <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </div>
               </div>
@@ -50,12 +54,13 @@ class ErrorBoundary extends Component<Props, State> {
                 <h3 className="text-lg font-medium text-gray-900">Something went wrong</h3>
               </div>
             </div>
-            
+
             <div className="mt-4">
               <p className="text-sm text-gray-600 mb-4">
-                We're sorry, but something unexpected happened. Please try refreshing the page or contact support if the problem persists.
+                We're sorry, but something unexpected happened. Please try refreshing the page or contact support if the
+                problem persists.
               </p>
-              
+
               {this.state.error && (
                 <details className="mt-4">
                   <summary className="cursor-pointer text-sm font-medium text-gray-700 hover:text-gray-900">
@@ -68,15 +73,13 @@ class ErrorBoundary extends Component<Props, State> {
                     {this.state.errorInfo && (
                       <div>
                         <strong>Stack:</strong>
-                        <pre className="mt-1 whitespace-pre-wrap">
-                          {this.state.errorInfo.componentStack}
-                        </pre>
+                        <pre className="mt-1 whitespace-pre-wrap">{this.state.errorInfo.componentStack}</pre>
                       </div>
                     )}
                   </div>
                 </details>
               )}
-              
+
               <div className="mt-6 flex space-x-3">
                 <button
                   onClick={() => window.location.reload()}

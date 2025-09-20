@@ -1,35 +1,24 @@
-import React, { useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import {
-  ArrowLeft,
-  Copy,
-  Check,
-  ExternalLink,
-  Code,
-  BookOpen,
-  Zap,
-  Tag,
-} from "lucide-react";
-import { getHookByPath, hooksData } from "../../data/hooksData";
-import { Button } from "../ui/button";
-import { Badge } from "../ui/badge";
+import React, { useState } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { ArrowLeft, Copy, Check, ExternalLink, Code, BookOpen, Zap, Tag } from 'lucide-react';
+import { getHookByPath, hooksData } from '../../data/hooksData';
+import { Button } from '../ui/button';
+import { Badge } from '../ui/badge';
 
 const HookDetail: React.FC = () => {
   const { hookPath } = useParams<{ hookPath: string }>();
   const navigate = useNavigate();
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
-  const hook = getHookByPath(hookPath || "");
+  const hook = getHookByPath(hookPath || '');
 
   if (!hook) {
     return (
       <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <div className="text-center space-y-4">
           <h1 className="text-2xl font-bold">Hook Not Found</h1>
-          <p className="text-muted-foreground">
-            The hook you're looking for doesn't exist.
-          </p>
-          <Button onClick={() => navigate("/hooks")}>Back to Hooks</Button>
+          <p className="text-muted-foreground">The hook you're looking for doesn't exist.</p>
+          <Button onClick={() => navigate('/hooks')}>Back to Hooks</Button>
         </div>
       </div>
     );
@@ -41,48 +30,47 @@ const HookDetail: React.FC = () => {
       setCopiedCode(type);
       setTimeout(() => setCopiedCode(null), 2000);
     } catch (err) {
-      console.error("Failed to copy text: ", err);
+      console.error('Failed to copy text: ', err);
     }
   };
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case "React Built-in":
-        return "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400";
-      case "State Management":
-        return "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400";
-      case "Performance":
-        return "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400";
-      case "DOM Events":
-        return "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-400";
-      case "Responsive":
-        return "bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-400";
-      case "Network":
-        return "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400";
-      case "Timers":
-        return "bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-400";
-      case "Animation":
-        return "bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-400";
-      case "Forms":
-        return "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-400";
-      case "Utility":
-        return "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300";
-      case "Browser APIs":
-        return "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400";
-      case "Storage":
-        return "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400";
-      case "Development":
-        return "bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300";
+      case 'React Built-in':
+        return 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400';
+      case 'State Management':
+        return 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400';
+      case 'Performance':
+        return 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400';
+      case 'DOM Events':
+        return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-400';
+      case 'Responsive':
+        return 'bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-400';
+      case 'Network':
+        return 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400';
+      case 'Timers':
+        return 'bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-400';
+      case 'Animation':
+        return 'bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-400';
+      case 'Forms':
+        return 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-400';
+      case 'Utility':
+        return 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300';
+      case 'Browser APIs':
+        return 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400';
+      case 'Storage':
+        return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400';
+      case 'Development':
+        return 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300';
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300";
+        return 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300';
     }
   };
 
   // Find next and previous hooks for navigation
   const currentIndex = hooksData.findIndex((h) => h.path === hook.path);
   const prevHook = currentIndex > 0 ? hooksData[currentIndex - 1] : null;
-  const nextHook =
-    currentIndex < hooksData.length - 1 ? hooksData[currentIndex + 1] : null;
+  const nextHook = currentIndex < hooksData.length - 1 ? hooksData[currentIndex + 1] : null;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -110,16 +98,10 @@ const HookDetail: React.FC = () => {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-3 mb-3">
-                <h1 className="text-4xl font-bold text-foreground">
-                  {hook.name}
-                </h1>
-                <Badge className={getCategoryColor(hook.category)}>
-                  {hook.category}
-                </Badge>
+                <h1 className="text-4xl font-bold text-foreground">{hook.name}</h1>
+                <Badge className={getCategoryColor(hook.category)}>{hook.category}</Badge>
               </div>
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-4xl">
-                {hook.description}
-              </p>
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-4xl">{hook.description}</p>
             </div>
           </div>
 
@@ -127,11 +109,7 @@ const HookDetail: React.FC = () => {
           <div className="flex flex-wrap gap-2">
             {hook?.tags &&
               hook?.tags.map((tag) => (
-                <Badge
-                  key={tag}
-                  variant="secondary"
-                  className="flex items-center gap-1"
-                >
+                <Badge key={tag} variant="secondary" className="flex items-center gap-1">
                   <Tag className="w-3 h-3" />
                   {tag}
                 </Badge>
@@ -143,10 +121,7 @@ const HookDetail: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {hook?.features &&
             hook?.features.map((feature, index) => (
-              <div
-                key={index}
-                className="bg-card border border-border rounded-lg p-4"
-              >
+              <div key={index} className="bg-card border border-border rounded-lg p-4">
                 <p className="text-sm text-muted-foreground">{feature}</p>
               </div>
             ))}
@@ -163,18 +138,14 @@ const HookDetail: React.FC = () => {
                 <h2 className="text-xl font-semibold">Installation</h2>
               </div>
               <div className="bg-muted rounded-lg p-4 relative">
-                <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
-                  {hook.installation}
-                </pre>
+                <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">{hook.installation}</pre>
                 <Button
                   size="sm"
                   variant="ghost"
                   className="absolute top-2 right-2"
-                  onClick={() =>
-                    copyToClipboard(hook?.installation, "installation")
-                  }
+                  onClick={() => copyToClipboard(hook?.installation, 'installation')}
                 >
-                  {copiedCode === "installation" ? (
+                  {copiedCode === 'installation' ? (
                     <Check className="w-4 h-4 text-green-600" />
                   ) : (
                     <Copy className="w-4 h-4" />
@@ -191,20 +162,14 @@ const HookDetail: React.FC = () => {
               </div>
               <p className="text-muted-foreground mb-4">{hook.usage}</p>
               <div className="bg-muted rounded-lg p-4 relative">
-                <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
-                  {hook.code}
-                </pre>
+                <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">{hook.code}</pre>
                 <Button
                   size="sm"
                   variant="ghost"
                   className="absolute top-2 right-2"
-                  onClick={() => copyToClipboard(hook.code, "code")}
+                  onClick={() => copyToClipboard(hook.code, 'code')}
                 >
-                  {copiedCode === "code" ? (
-                    <Check className="w-4 h-4 text-green-600" />
-                  ) : (
-                    <Copy className="w-4 h-4" />
-                  )}
+                  {copiedCode === 'code' ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
                 </Button>
               </div>
             </section>
@@ -219,24 +184,16 @@ const HookDetail: React.FC = () => {
                 {hook.examples.map((example, index) => (
                   <div key={index} className="space-y-3">
                     <div>
-                      <h3 className="font-semibold text-foreground">
-                        {example.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {example.description}
-                      </p>
+                      <h3 className="font-semibold text-foreground">{example.title}</h3>
+                      <p className="text-sm text-muted-foreground">{example.description}</p>
                     </div>
                     <div className="bg-muted rounded-lg p-4 relative">
-                      <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
-                        {example.code}
-                      </pre>
+                      <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">{example.code}</pre>
                       <Button
                         size="sm"
                         variant="ghost"
                         className="absolute top-2 right-2"
-                        onClick={() =>
-                          copyToClipboard(example.code, `example-${index}`)
-                        }
+                        onClick={() => copyToClipboard(example.code, `example-${index}`)}
                       >
                         {copiedCode === `example-${index}` ? (
                           <Check className="w-4 h-4 text-green-600" />
@@ -264,19 +221,12 @@ const HookDetail: React.FC = () => {
                   {hook.api.parameters.map((param, index) => (
                     <div key={index} className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <code className="text-sm font-mono bg-muted px-2 py-1 rounded">
-                          {param.name}
-                        </code>
-                        <Badge
-                          variant={param.required ? "destructive" : "secondary"}
-                          className="text-xs"
-                        >
-                          {param.required ? "required" : "optional"}
+                        <code className="text-sm font-mono bg-muted px-2 py-1 rounded">{param.name}</code>
+                        <Badge variant={param.required ? 'destructive' : 'secondary'} className="text-xs">
+                          {param.required ? 'required' : 'optional'}
                         </Badge>
                       </div>
-                      <p className="text-xs text-muted-foreground">
-                        {param.description}
-                      </p>
+                      <p className="text-xs text-muted-foreground">{param.description}</p>
                       <p className="text-xs font-mono text-muted-foreground">
                         Type: {param.type}
                         {param.default && ` (default: ${param.default})`}
@@ -292,15 +242,9 @@ const HookDetail: React.FC = () => {
                 <div className="space-y-3">
                   {hook.api.returns.map((ret, index) => (
                     <div key={index} className="space-y-1">
-                      <code className="text-sm font-mono bg-muted px-2 py-1 rounded">
-                        {ret.name}
-                      </code>
-                      <p className="text-xs text-muted-foreground">
-                        {ret.description}
-                      </p>
-                      <p className="text-xs font-mono text-muted-foreground">
-                        Type: {ret.type}
-                      </p>
+                      <code className="text-sm font-mono bg-muted px-2 py-1 rounded">{ret.name}</code>
+                      <p className="text-xs text-muted-foreground">{ret.description}</p>
+                      <p className="text-xs font-mono text-muted-foreground">Type: {ret.type}</p>
                     </div>
                   ))}
                 </div>
@@ -327,9 +271,7 @@ const HookDetail: React.FC = () => {
               <h3 className="text-lg font-semibold mb-4">Related Hooks</h3>
               <div className="space-y-3">
                 {hooksData
-                  .filter(
-                    (h) => h.category === hook.category && h.path !== hook.path
-                  )
+                  .filter((h) => h.category === hook.category && h.path !== hook.path)
                   .slice(0, 3)
                   .map((relatedHook) => (
                     <Link
@@ -342,9 +284,7 @@ const HookDetail: React.FC = () => {
                         <p className="font-medium text-foreground group-hover:text-primary transition-colors">
                           {relatedHook.name}
                         </p>
-                        <p className="text-xs text-muted-foreground truncate">
-                          {relatedHook.description}
-                        </p>
+                        <p className="text-xs text-muted-foreground truncate">{relatedHook.description}</p>
                       </div>
                       <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                     </Link>

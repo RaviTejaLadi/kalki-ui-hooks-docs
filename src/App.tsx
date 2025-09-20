@@ -1,22 +1,16 @@
-import React, { Suspense } from "react";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import ErrorBoundary from "./components/ErrorBoundary";
-import Loading from "./components/Loading";
-import NotFound from "./components/NotFound";
-import Navbar from "./components/Layout/NavBar";
-import Footer from "./components/Layout/Footer";
+import React, { Suspense } from 'react';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import ErrorBoundary from './components/ErrorBoundary';
+import Loading from './components/Loading';
+import NotFound from './components/NotFound';
+import Navbar from './components/Layout/NavBar';
+import Footer from './components/Layout/Footer';
 
 // Lazy load components for better performance
-const LazyHome = React.lazy(() => import("./components/Home"));
-const LazyHooksLayout = React.lazy(
-  () => import("./components/Layout/HooksLayout/HooksLayout")
-);
-const LazyHooksIndex = React.lazy(
-  () => import("./components/hooks/HooksIndex")
-);
-const LazyHookDetail = React.lazy(
-  () => import("./components/hooks/HookDetail")
-);
+const LazyHome = React.lazy(() => import('./components/Home'));
+const LazyHooksLayout = React.lazy(() => import('./components/Layout/HooksLayout/HooksLayout'));
+const LazyHooksIndex = React.lazy(() => import('./components/hooks/HooksIndex'));
+const LazyHookDetail = React.lazy(() => import('./components/hooks/HookDetail'));
 
 // Root layout component
 const RootLayout: React.FC = () => {
@@ -38,7 +32,7 @@ const RootLayout: React.FC = () => {
 // Router configuration
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <RootLayout />,
     errorElement: <NotFound />,
     children: [
@@ -47,7 +41,7 @@ const router = createBrowserRouter([
         element: <LazyHome />,
       },
       {
-        path: "hooks",
+        path: 'hooks',
         element: <LazyHooksLayout />,
         children: [
           {
@@ -55,13 +49,13 @@ const router = createBrowserRouter([
             element: <LazyHooksIndex />,
           },
           {
-            path: ":hookPath",
+            path: ':hookPath',
             element: <LazyHookDetail />,
           },
         ],
       },
       {
-        path: "*",
+        path: '*',
         element: <NotFound />,
       },
     ],

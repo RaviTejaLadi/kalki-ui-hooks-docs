@@ -29,14 +29,16 @@ const UseLocalStorage: React.FC = () => {
       {/* Header */}
       <div className="border-b border-gray-200 pb-6">
         <div className="flex items-center space-x-2 text-sm text-gray-500 mb-2">
-          <Link to="/hooks" className="hover:text-gray-700">Hooks</Link>
+          <Link to="/hooks" className="hover:text-gray-700">
+            Hooks
+          </Link>
           <span>/</span>
           <span>useLocalStorage</span>
         </div>
         <h1 className="text-3xl font-bold text-gray-900 mb-4">useLocalStorage</h1>
         <p className="text-lg text-gray-600 max-w-3xl">
-          A React hook that provides a simple way to persist state in localStorage with automatic 
-          serialization, error handling, and SSR safety.
+          A React hook that provides a simple way to persist state in localStorage with automatic serialization, error
+          handling, and SSR safety.
         </p>
       </div>
 
@@ -70,7 +72,7 @@ const UseLocalStorage: React.FC = () => {
       <div className="bg-white rounded-lg shadow p-6">
         <h2 className="text-xl font-semibold text-gray-900 mb-4">Basic Usage</h2>
         <div className="bg-gray-900 rounded-lg p-4 text-green-400 font-mono text-sm overflow-x-auto">
-          <div>import { useLocalStorage } from '@kalki-ui/hooks';</div>
+          <div>import {useLocalStorage} from '@kalki-ui/hooks';</div>
           <div className="mt-2">function MyComponent() {'{'}</div>
           <div className="ml-4">const [value, setValue] = useLocalStorage('my-key', 'default');</div>
           <div className="ml-4">return (</div>
@@ -83,10 +85,8 @@ const UseLocalStorage: React.FC = () => {
       {/* Interactive Demo */}
       <div className="bg-white rounded-lg shadow p-6">
         <h2 className="text-xl font-semibold text-gray-900 mb-4">Interactive Demo</h2>
-        <p className="text-gray-600 mb-4">
-          Try storing, retrieving, and clearing values from localStorage:
-        </p>
-        
+        <p className="text-gray-600 mb-4">Try storing, retrieving, and clearing values from localStorage:</p>
+
         <div className="space-y-4">
           <div className="flex space-x-2">
             <input
@@ -103,7 +103,7 @@ const UseLocalStorage: React.FC = () => {
               Store
             </button>
           </div>
-          
+
           <div className="flex space-x-2">
             <button
               onClick={handleRetrieve}
@@ -118,7 +118,7 @@ const UseLocalStorage: React.FC = () => {
               Clear
             </button>
           </div>
-          
+
           {storedValue && (
             <div className="bg-gray-100 rounded-lg p-4">
               <strong>Stored Value:</strong> {storedValue}
@@ -134,14 +134,20 @@ const UseLocalStorage: React.FC = () => {
           <div>
             <h3 className="font-semibold text-gray-900">Parameters</h3>
             <ul className="list-disc list-inside text-gray-600 space-y-1 mt-2">
-              <li><code className="bg-gray-100 px-1 rounded">key</code> - The localStorage key</li>
-              <li><code className="bg-gray-100 px-1 rounded">defaultValue</code> - Initial value if key doesn't exist</li>
+              <li>
+                <code className="bg-gray-100 px-1 rounded">key</code> - The localStorage key
+              </li>
+              <li>
+                <code className="bg-gray-100 px-1 rounded">defaultValue</code> - Initial value if key doesn't exist
+              </li>
             </ul>
           </div>
           <div>
             <h3 className="font-semibold text-gray-900">Returns</h3>
             <ul className="list-disc list-inside text-gray-600 space-y-1 mt-2">
-              <li><code className="bg-gray-100 px-1 rounded">[value, setValue]</code> - Current value and setter function</li>
+              <li>
+                <code className="bg-gray-100 px-1 rounded">[value, setValue]</code> - Current value and setter function
+              </li>
             </ul>
           </div>
         </div>
@@ -149,10 +155,7 @@ const UseLocalStorage: React.FC = () => {
 
       {/* Navigation */}
       <div className="flex justify-between pt-6 border-t border-gray-200">
-        <Link
-          to="/hooks"
-          className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors"
-        >
+        <Link to="/hooks" className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors">
           ← Back to Hooks
         </Link>
         <Link
