@@ -1,4 +1,4 @@
-import type { HookData } from "@/types/HookData";/hooksData';
+import type { HookData } from "@/types/HookData";
 
 export const performanceHooks: HookData[] = [
   {
