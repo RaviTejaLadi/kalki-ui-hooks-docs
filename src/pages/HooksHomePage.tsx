@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Input } from '../ui/input';
+import { Input } from '../components/ui/input';
 import { Search } from 'lucide-react';
-import { hooksData } from '../../data/hooksData';
+import { hooksData } from '../data/hooksData';
 import ReactSvg from '@/assets/ReactSvg';
 
-const HooksIndex: React.FC = () => {
+const HooksHomePage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const hooks = hooksData;
@@ -191,4 +191,4 @@ const HooksIndex: React.FC = () => {
   );
 };
 
-export default HooksIndex;
+export default HooksHomePage;

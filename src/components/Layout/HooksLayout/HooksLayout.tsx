@@ -19,7 +19,7 @@ export default function HooksLayout() {
                 <p>Toggle sidebar</p>
               </TooltipContent>
             </Tooltip>
-            <ScrollArea className="flex-1 p-4 ">
+            <ScrollArea className="flex-1">
               <Outlet />
             </ScrollArea>
           </div>

@@ -6,10 +6,10 @@ import NotFound from './components/NotFound';
 import Navbar from './components/Layout/NavBar';
 
 // Lazy load components for better performance
-const LazyHome = React.lazy(() => import('./components/Home'));
+const LazyHome = React.lazy(() => import('./pages/Home'));
 const LazyHooksLayout = React.lazy(() => import('./components/Layout/HooksLayout/HooksLayout'));
-const LazyHooksIndex = React.lazy(() => import('./components/hooks/HooksIndex'));
-const LazyHookDetail = React.lazy(() => import('./components/hooks/HookDetail'));
+const HooksHomePage = React.lazy(() => import('./pages/HooksHomePage'));
+const LazyHookDetail = React.lazy(() => import('./pages/HookDetail'));
 
 // Root layout component
 const RootLayout: React.FC = () => {
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <LazyHooksIndex />,
+            element: <HooksHomePage />,
           },
           {
             path: ':hookPath',
