@@ -1,5 +1,5 @@
 // Import all category hooks
-import { stateManagementHooks } from './categories/stateManagement';
+import { stateManagementHooks } from './categories/stateManagement/stateManagement';
 import { performanceHooks } from './categories/performance';
 import { reactBuiltInHooks } from './categories/reactBuiltIn';
 import { domEventsHooks } from './categories/domEvents';

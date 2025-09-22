@@ -4,7 +4,6 @@ import ErrorBoundary from './components/ErrorBoundary';
 import Loading from './components/Loading';
 import NotFound from './components/NotFound';
 import Navbar from './components/Layout/NavBar';
-import Footer from './components/Layout/Footer';
 
 // Lazy load components for better performance
 const LazyHome = React.lazy(() => import('./components/Home'));
@@ -22,7 +21,6 @@ const RootLayout: React.FC = () => {
           <main className="flex-1">
             <Outlet />
           </main>
-          <Footer />
         </div>
       </Suspense>
     </ErrorBoundary>

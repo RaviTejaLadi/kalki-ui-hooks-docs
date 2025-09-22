@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code2, Zap, ChevronRight, Sparkles } from 'lucide-react';
+import Footer from './Layout/Footer';
 
 const Home: React.FC = () => {
   return (
@@ -115,6 +116,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
